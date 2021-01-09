@@ -1,0 +1,45 @@
+version: "3.5"
+
+services:
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    env_file:
+      - database.env
+      # - .env
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGDATA=${PGDATA}
+    volumes:
+      - postgres:${PGDATA}
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    env_file:
+      - database.env
+      # - .env
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
+    volumes:
+      - pgadmin:/root/.pgadmin
+    ports:
+      - ${PGADMIN_PORT}:80
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:

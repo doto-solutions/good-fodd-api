@@ -4,6 +4,7 @@
 
 - run local docker DB
   ```bash
+  cd db/
   docker-compose -f stack.yaml --env-file=database.env up
   ```
 - run local postgraphile server
@@ -33,7 +34,10 @@
     ```
 
     otherwise
-
+    ```
+    npx db-migrate up
+    ```
+    &
     ```
     npx db-migrate create create-test-db
     ```

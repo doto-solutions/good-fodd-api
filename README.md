@@ -33,7 +33,7 @@
     npx db-migrate create create-test-db --sql-file
     ```
 
-    otherwise
+- otherwise
     ```
     npx db-migrate up
     ```

@@ -16,6 +16,7 @@
     "db-migrate": "1.0.0-beta.14",
     "db-migrate-pg": "^1.2.2",
     "express": "^4.17.1",
+    "graphile-worker": "^0.8.1",
     "graphql-tag": "^2.11.0",
     "postgraphile": "^4.10.0",
     "postgraphile-core": "^4.10.0",

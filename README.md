@@ -37,3 +37,8 @@
     ```
     npx db-migrate create create-test-db
     ```
+
+#Stack:
+
+- full-text search [MeiliSearch](https://github.com/meilisearch/MeiliSearch)
+- push notification server [gorush](https://github.com/appleboy/gorush)

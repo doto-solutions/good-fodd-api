@@ -4,6 +4,6 @@
     "host": { "ENV": "POSTGRES_HOST" },
     "user": { "ENV": "POSTGRES_USER" },
     "password": { "ENV": "POSTGRES_PASSWORD" },
-    "database": { "ENV": "POSTGRESS_DATABASE" }
+    "database": { "ENV": "POSTGRES_DATABASE" }
   }
 }

@@ -1,7 +1,7 @@
 import { postgraphile, PostGraphileOptions } from "postgraphile";
 import { Plugin } from "postgraphile-core";
 import express from "express";
-
+//Relative import, based on PWD
 const result = require("dotenv").config({ path: "./db/database.env" });
 
 if (result.error) {
@@ -59,7 +59,7 @@ app.use(
       host: POSTGRES_HOST,
       port: Number(POSTGRES_PORT) ?? 5432,
     },
-    ["recipe", "public"],
+    ["recipe", "personal"],
     {
       ...postgraphileOptionsDev,
     }

@@ -11,13 +11,18 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - PGDATA=${PGDATA}
+      # - DB_UPSTREAM=http://${DOCKER_GATEWAY_HOST:-host.docker.internal}:5432
+
     volumes:
       - postgres:${PGDATA}
     ports:
       - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    # networks:
+    #   - gfnetwork
     networks:
       - postgres
     restart: unless-stopped
+    # network_mode: host
 
   pgadmin:
     container_name: pgadmin_container
@@ -37,8 +42,13 @@ services:
     restart: unless-stopped
 
 networks:
+  # For Global networking
+  # gfnetwork:
+  #   external: true
   postgres:
     driver: bridge
+    ## TODO: This is for Mac
+    # driver: host
 
 volumes:
   postgres:
